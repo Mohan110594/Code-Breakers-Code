@@ -1,0 +1,11 @@
+If a topological sort exists for a graph, then the reverse postorder is also a topological sort. In particular, we can find a topological sort for an acyclic digraph, with depth first search.
+
+Topological sort is used to find cycles in Directed graph.
+
+
+A directed graph has a topological sort if and only if it does not have any cycles.
+
+
+what is Topological sort ??
+
+Topological Sort - This is an ordering of all vertices in a digraph, such that if we lined up all vertices from left to right, then all the edges could be drawn as pointing to the right. A digraph may have one, multiple, or zero topological sorts.
