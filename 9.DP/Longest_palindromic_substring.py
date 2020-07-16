@@ -1,7 +1,7 @@
 #Expand around the center
 
 #Time comp --> o(n2)
-#space comp --> o(n2)
+#space comp --> o(1)
 
 class Solution:
     
@@ -37,6 +37,43 @@ class Solution:
             
         return s[self.start:self.start+self.maxlen]
             
+ #DP      
+ #Time comp --> o(n2)
+#space comp --> o(n2)
+ 
+ class Solution:
+    
+    def __init__(self):
+        self.maxlen=0
+        self.start=0
+    
+    def longestPalindrome(self, s: str) -> str:
+
+        if len(s)==0:
+            return ""
+        
+        count=0
+        
+        dp=[[False for i in range(len(s))]for j in range(len(s))]
+        
+        for i in range(len(s)):
+            dp[i][i]=True
+            self.maxlen=1
+            self.start=i
+            
+        for start in range(len(s)-1,-1,-1):
+            for end in range(start+1,len(s)):
+                
+                if s[start]==s[end]:
+                    
+                    if end-start==1 or dp[start+1][end-1]:
+                        dp[start][end]=True
+                        if end-start+1>self.maxlen:
+                            self.maxlen=end-start+1
+                            self.start=start
+                        
+                        
+        return s[self.start:self.start+self.maxlen]
         
         
         
